@@ -5,7 +5,7 @@ import jobsFixtures from "fixtures/jobsFixtures";
 import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
 import { ucsbSubjectsFixtures } from "fixtures/ucsbSubjectsFixtures";
 import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
-
+ 
 export default {
   title: "pages/AdminJobsPage",
   component: AdminJobsPage,
