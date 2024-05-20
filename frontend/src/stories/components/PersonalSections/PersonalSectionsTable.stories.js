@@ -18,7 +18,7 @@ export const Empty = Template.bind({});
 Empty.args = {
   personalSections: [],
 };
-
+ 
 export const ThreeSections = Template.bind({});
 
 ThreeSections.args = {
