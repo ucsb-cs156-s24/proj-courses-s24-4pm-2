@@ -4,7 +4,7 @@ import { useBackendMutation } from "main/utils/useBackend";
 import {
   cellToAxiosParamsDelete,
   onDeleteSuccess,
-} from "main/utils/PersonalSectionsUtils";
+} from "main/utils/CoursesUtils";
 import { hasRole } from "main/utils/currentUser";
 import {
   convertToFraction,
@@ -13,10 +13,7 @@ import {
   formatTime,
 } from "main/utils/sectionUtils.js";
 
-export default function PersonalSectionsTable({
-   personalSections,
-   currentUser
-  }) {
+export default function PersonalSectionsTable({ personalSections, currentUser }) {
   
  // Stryker disable all : hard to test for query caching
  const deleteMutation = useBackendMutation(
