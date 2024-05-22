@@ -4,7 +4,7 @@ import { useBackendMutation } from "main/utils/useBackend";
 import {
   cellToAxiosParamsDelete,
   onDeleteSuccess,
-} from "main/utils/CoursesUtils";
+} from "main/utils/PersonalSectionsUtils";
 import { hasRole } from "main/utils/currentUser";
 import {
   convertToFraction,
