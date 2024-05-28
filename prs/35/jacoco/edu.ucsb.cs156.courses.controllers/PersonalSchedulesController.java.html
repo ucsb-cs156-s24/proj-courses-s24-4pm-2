@@ -60,7 +60,7 @@ import org.springframework.web.bind.annotation.RestController;
         personalscheduleRepository
 <span class="fc" id="L61">            .findByIdAndUser(id, currentUser)</span>
 <span class="fc" id="L62">            .orElseThrow(() -&gt; new EntityNotFoundException(PersonalSchedule.class, id));</span>
- 
+
 <span class="fc" id="L64">    return personalschedule;</span>
   }
 
