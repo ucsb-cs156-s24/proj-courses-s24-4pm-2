@@ -5,10 +5,8 @@ import Form from "react-bootstrap/Form";
 import PersonalScheduleSelector from "./PersonalScheduleSelector";
 import { useBackend } from "main/utils/useBackend";
 import { Link } from "react-router-dom";
-import { schedulesFilter } from "main/utils/PersonalScheduleUtils";
-import { yyyyqToQyy } from "main/utils/quarterUtilities.js";
 
-export default function AddToScheduleModal({ quarter, section, onAdd }) {
+export default function AddToScheduleModal({ section, onAdd }) {
   const [showModal, setShowModal] = useState(false);
   const [selectedSchedule, setSelectedSchedule] = useState("");
 
@@ -24,8 +22,6 @@ export default function AddToScheduleModal({ quarter, section, onAdd }) {
   );
   // Stryker restore all
 
-  const filteringSchedules = schedulesFilter(schedules, quarter);
-
   const handleModalClose = () => {
     setShowModal(false);
   };
@@ -34,7 +30,6 @@ export default function AddToScheduleModal({ quarter, section, onAdd }) {
     onAdd(section, selectedSchedule);
     handleModalClose();
   };
-
   // Stryker disable all : tested manually, complicated to test
   return (
     <>
@@ -48,22 +43,19 @@ export default function AddToScheduleModal({ quarter, section, onAdd }) {
         <Modal.Body>
           <Form>
             {
-              /* istanbul ignore next */ filteringSchedules.length > 0 ? (
+              /* istanbul ignore next */ schedules.length > 0 ? (
                 <Form.Group controlId="scheduleSelect">
                   <Form.Label>Select Schedule</Form.Label>
                   <PersonalScheduleSelector
                     schedule={selectedSchedule}
                     setSchedule={setSelectedSchedule}
                     controlId="scheduleSelect"
-                    filteringSchedules={filteringSchedules}
                   />
                 </Form.Group>
               ) : (
                 <p>
-                  There are no personal schedules for {yyyyqToQyy(quarter)}.
-                  <Link to="/personalschedules/create">
-                    [Create Personal Schedule]
-                  </Link>
+                  No schedules found.
+                  <Link to="/personalschedules/create">Create a schedule</Link>
                 </p>
               )
             }
