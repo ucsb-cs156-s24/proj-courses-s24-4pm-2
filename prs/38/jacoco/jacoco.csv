@@ -27,7 +27,7 @@ courses,edu.ucsb.cs156.courses.jobs,UpdateCourseDataJob,0,152,0,8,0,40,0,6,0,2
 courses,edu.ucsb.cs156.courses.jobs,UpdateCourseDataJobFactory,0,81,0,2,0,16,0,8,0,7
 courses,edu.ucsb.cs156.courses.jobs,UploadGradeDataJobFactory,0,11,0,0,0,2,0,2,0,2
 courses,edu.ucsb.cs156.courses.jobs,UploadGradeDataJob,0,127,0,8,0,34,0,7,0,3
-courses,edu.ucsb.cs156.courses.errors,EntityNotFoundException,0,47,0,0,0,4,0,2,0,2
+courses,edu.ucsb.cs156.courses.errors,EntityNotFoundException,0,47,0,0,0,8,0,2,0,2
 courses,edu.ucsb.cs156.courses.errors,BadEnrollCdException,0,12,0,0,0,3,0,1,0,1
 courses,edu.ucsb.cs156.courses.entities,GradeHistory,0,23,0,4,0,4,0,4,0,2
 courses,edu.ucsb.cs156.courses.models,Quarter,0,412,0,43,0,81,0,43,0,21
