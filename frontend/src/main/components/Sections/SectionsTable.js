@@ -43,7 +43,33 @@ export function isLectureWithNoSections(enrollCode, sections) {
       // Stryker restore all
       // Check if there is only one section for the course
       return courseSections.length === 1;
-    }
+    } 
+  }
+
+  return false;
+}
+export function isLectureWithSections(enrollCode, sections) {
+  // Find the section with the given enrollCode
+  const section = sections.find(
+    (section) => section.section.enrollCode === enrollCode,
+  );
+
+  if (section) {
+    // Extract the courseId and section number from the found section
+    const courseId = section.courseInfo.courseId;
+    // const sectionNumber = section.section.section
+    const sectionNumberEnd = section.section.section.slice(2);
+
+    if (sectionNumberEnd === "00") {
+      // Filter all sections with the same courseId
+      // Stryker disable all
+      const courseSections = sections.filter(
+        (section) => section.courseInfo.courseId === courseId,
+      );
+      // Stryker restore all
+      // Check if there is only one section for the course
+      return courseSections.length > 1;
+    } 
   }
 
   return false;
@@ -89,7 +115,6 @@ export const onSuccess = (response) => {
 export default function SectionsTable({ sections }) {
   // Stryker restore all
   // Stryker disable BooleanLiteral
-
   const { data: currentUser } = useCurrentUser();
 
   const mutation = useBackendMutation(
@@ -189,13 +214,8 @@ export default function SectionsTable({ sections }) {
       Header: "Enroll Code",
       accessor: "section.enrollCode",
       disableGroupBy: true,
-      Cell: ({ cell: { value } }) => {
-        return value;
-      },
       aggregate: getFirstVal,
-      Aggregated: ({ cell: { value } }) => /* istanbul ignore next */ {
-        return `${value}`;
-      },
+      Aggregated: ({ cell: { value } }) => `${value}`,
     },
     {
       Header: "Info",
@@ -210,6 +230,7 @@ export default function SectionsTable({ sections }) {
     {
       Header: "Action",
       id: "action",
+      accessor: "section.enrollCode",
       disableGroupBy: true,
       // No need for accessor if it's purely for actions like expand/collapse
       Cell: ({ row }) => {
@@ -235,10 +256,8 @@ export default function SectionsTable({ sections }) {
       Aggregated: ({
         cell: { value },
         row,
-        column,
       }) => /* istanbul ignore next */ {
-        const testId = `${testid}-cell-row-${row.index}-col-${column.id}-expand-symbols`;
-        console.log("Rendered cell with data-testid:", testId); // Print the data-testid to the console
+        const testId = `${testid}-cell-row-${row.index}-col-${value}-expand-symbols`;
         if (isLectureWithNoSections(value, sections) && currentUser.loggedIn) {
           return (
             <div className="d-flex align-items-center gap-2">
@@ -250,6 +269,8 @@ export default function SectionsTable({ sections }) {
               />
             </div>
           );
+        } else if(!isLectureWithSections(value, sections) && currentUser.loggedIn) {
+          return null;
         } else {
           return (
             <span {...row.getToggleRowExpandedProps()} data-testid={testId}>
