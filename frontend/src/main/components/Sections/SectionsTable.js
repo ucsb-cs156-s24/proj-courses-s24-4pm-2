@@ -57,7 +57,6 @@ export function isLectureWithSections(enrollCode, sections) {
   if (section) {
     // Extract the courseId and section number from the found section
     const courseId = section.courseInfo.courseId;
-    // const sectionNumber = section.section.section
     const sectionNumberEnd = section.section.section.slice(2);
 
     if (sectionNumberEnd === "00") {
