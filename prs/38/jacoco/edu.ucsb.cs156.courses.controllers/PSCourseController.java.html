@@ -252,12 +252,12 @@ import org.springframework.web.bind.annotation.RestController;
 <span class="fc" id="L252">    PSCourse psCourse = </span>
         coursesRepository
 <span class="fc" id="L254">            .findByPsIdAndEnrollCd(psId, enrollCd)</span>
-<span class="pc" id="L255">            .orElseThrow(() -&gt; new EntityNotFoundException(PSCourse.class, &quot;psId&quot;, psId, &quot;enrollCode&quot;, enrollCd));</span>
+<span class="fc" id="L255">            .orElseThrow(() -&gt; new EntityNotFoundException(PSCourse.class, &quot;psId&quot;, psId, &quot;enrollCode&quot;, enrollCd));</span>
 <span class="fc" id="L256">    long id = psCourse.getId();</span>
 <span class="fc" id="L257">    PersonalSchedule checkPsId =</span>
         personalScheduleRepository
 <span class="fc" id="L259">            .findByIdAndUser(psId, currentUser)</span>
-<span class="pc" id="L260">            .orElseThrow(() -&gt; new EntityNotFoundException(PersonalSchedule.class, psId));</span>
+<span class="fc" id="L260">            .orElseThrow(() -&gt; new EntityNotFoundException(PersonalSchedule.class, psId));</span>
 
 <span class="fc" id="L262">    String body =</span>
 <span class="fc" id="L263">        ucsbCurriculumService.getAllSections(psCourse.getEnrollCd(), checkPsId.getQuarter());</span>
