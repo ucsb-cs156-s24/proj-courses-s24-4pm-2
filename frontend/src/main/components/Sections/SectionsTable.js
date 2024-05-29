@@ -43,7 +43,7 @@ export function isLectureWithNoSections(enrollCode, sections) {
       // Stryker restore all
       // Check if there is only one section for the course
       return courseSections.length === 1;
-    } 
+    }
   }
 
   return false;
@@ -69,7 +69,7 @@ export function isLectureWithSections(enrollCode, sections) {
       // Stryker restore all
       // Check if there is only one section for the course
       return courseSections.length > 1;
-    } 
+    }
   }
 
   return false;
@@ -253,10 +253,7 @@ export default function SectionsTable({ sections }) {
         // Stryker restore all
       },
       aggregate: getFirstVal,
-      Aggregated: ({
-        cell: { value },
-        row,
-      }) => /* istanbul ignore next */ {
+      Aggregated: ({ cell: { value }, row }) => /* istanbul ignore next */ {
         const testId = `${testid}-cell-row-${row.index}-col-${value}-expand-symbols`;
         if (isLectureWithNoSections(value, sections) && currentUser.loggedIn) {
           return (
@@ -269,7 +266,10 @@ export default function SectionsTable({ sections }) {
               />
             </div>
           );
-        } else if(!isLectureWithSections(value, sections) && currentUser.loggedIn) {
+        } else if (
+          !isLectureWithSections(value, sections) &&
+          currentUser.loggedIn
+        ) {
           return null;
         } else {
           return (

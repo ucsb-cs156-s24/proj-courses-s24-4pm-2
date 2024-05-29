@@ -7,7 +7,10 @@ import SectionsTable from "main/components/Sections/SectionsTable";
 import { objectToAxiosParams } from "main/components/Sections/SectionsTable";
 import { handleAddToSchedule } from "main/components/Sections/SectionsTable";
 import { handleLectureAddToSchedule } from "main/components/Sections/SectionsTable";
-import { isLectureWithNoSections, isLectureWithSections } from "main/components/Sections/SectionsTable";
+import {
+  isLectureWithNoSections,
+  isLectureWithSections,
+} from "main/components/Sections/SectionsTable";
 import { useBackendMutation } from "main/utils/useBackend";
 
 const mockedNavigate = jest.fn();
@@ -436,9 +439,7 @@ describe("Section tests", () => {
     expect(
       screen.getByTestId(`${testId}-cell-row-0-col-section.enrollCode`),
     ).toHaveTextContent("12583");
-    expect(
-      screen.getByTestId(`${testId}-cell-row-0-col-action`),
-    );
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-action`));
   });
 
   test("Correctly groups separate lectures of the same class", async () => {
