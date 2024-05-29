@@ -439,7 +439,7 @@ describe("Section tests", () => {
     expect(
       screen.getByTestId(`${testId}-cell-row-0-col-section.enrollCode`),
     ).toHaveTextContent("12583");
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-action`)).toBeDefined();;
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-action`)).toBeDefined();
   });
 
   test("Correctly groups separate lectures of the same class", async () => {
