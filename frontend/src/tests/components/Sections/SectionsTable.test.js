@@ -181,6 +181,32 @@ describe("isLectureWithNoSections", () => {
 
     expect(result).toBe(false);
   });
+  it("should return false when the section number has a letter in it", () => {
+    const enrollCode = "12345";
+    const sections = [
+      {
+        courseInfo: { courseId: "COURSE1" },
+        section: {
+          enrollCode: "12345",
+          section: "aa00",
+          timeLocations: [
+            {
+              room: "3505",
+              building: "PHELP",
+              roomCapacity: "60",
+              days: " T R   ",
+              beginTime: "08:00",
+              endTime: "09:15",
+            },
+          ],
+        },
+      },
+    ];
+
+    const result = isLectureWithNoSections(enrollCode, sections);
+
+    expect(result).toBe(false);
+  });
   it("should return false when the section number ends in 00 and is not 0100 and has a section", () => {
     const enrollCode = "12345";
     const sections = [
