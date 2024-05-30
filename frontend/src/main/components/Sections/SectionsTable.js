@@ -47,7 +47,9 @@ export function isLectureWithNoSections(enrollCode, sections) {
     } else if (sectionNumber.slice(-2) === "00") {
       // Check if the section has a location to make sure its a course
       return (
-        courseSections.length === 1 && typeof timeLocations !== "undefined" && timeLocations.length == 1
+        courseSections.length === 1 &&
+        typeof timeLocations !== "undefined" &&
+        timeLocations.length === 1
       );
     }
   }
