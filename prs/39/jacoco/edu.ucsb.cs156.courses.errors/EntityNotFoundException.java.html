@@ -4,5 +4,21 @@ public class EntityNotFoundException extends RuntimeException {
   public EntityNotFoundException(Class&lt;?&gt; entityType, Object id) {
 <span class="fc" id="L5">    super(&quot;%s with id %s not found&quot;.formatted(entityType.getSimpleName(), id.toString()));</span>
 <span class="fc" id="L6">  }</span>
+
+  public EntityNotFoundException(
+      Class&lt;?&gt; entityType,
+      String fieldOneName,
+      Object fieldOneValue,
+      String fieldTwoName,
+      Object fieldTwoValue) {
+<span class="fc" id="L14">    super(</span>
+        &quot;%s with %s %s and %s %s not found&quot;
+<span class="fc" id="L16">            .formatted(</span>
+<span class="fc" id="L17">                entityType.getSimpleName(),</span>
+                fieldOneName,
+<span class="fc" id="L19">                fieldOneValue.toString(),</span>
+                fieldTwoName,
+<span class="fc" id="L21">                fieldTwoValue.toString()));</span>
+<span class="fc" id="L22">  }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
