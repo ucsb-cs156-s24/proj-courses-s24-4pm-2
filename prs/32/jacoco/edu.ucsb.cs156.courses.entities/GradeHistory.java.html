@@ -12,26 +12,24 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * GradeHistory - Entity for grade history data. Each object represents one row
- * from the CSV files
- * located in this repository: &lt;a
- * href=
+ * GradeHistory - Entity for grade history data. Each object represents one row from the CSV files
+ * located in this repository: &lt;a href=
  * &quot;https://github.com/rtora/UCSB_Grades&quot;&gt;https://github.com/rtora/UCSB_Grades&lt;/a&gt;
  *
- * &lt;p&gt;
- * There is a unique constraint on the combination of year, quarter,
- * subjectArea, course,
- * instructor, and grade, since we do not want duplicate rows of data for the
- * same course.
+ * &lt;p&gt;There is a unique constraint on the combination of year, quarter, subjectArea, course,
+ * instructor, and grade, since we do not want duplicate rows of data for the same course.
  */
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = &quot;historygrade&quot;)
-@Table(uniqueConstraints = {
-    @UniqueConstraint(name = &quot;UniqueGradeHistory&quot;, columnNames = { &quot;yyyyq&quot;, &quot;course&quot;, &quot;instructor&quot;, &quot;grade&quot;, &quot;count&quot; })
-})
+@Table(
+    uniqueConstraints = {
+      @UniqueConstraint(
+          name = &quot;UniqueGradeHistory&quot;,
+          columnNames = {&quot;yyyyq&quot;, &quot;course&quot;, &quot;instructor&quot;, &quot;grade&quot;, &quot;count&quot;})
+    })
 public class GradeHistory {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,15 +42,13 @@ public class GradeHistory {
   private int count;
 
   public String getSubjectArea() {
-<span class="fc bfc" id="L47" title="All 2 branches covered.">    if (course == null)</span>
-<span class="fc" id="L48">      return null;</span>
-<span class="fc" id="L49">    return course.substring(0, 8).trim();</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">    if (course == null) return null;</span>
+<span class="fc" id="L46">    return course.substring(0, 8).trim();</span>
   }
 
   public String getCourseNum() {
-<span class="fc bfc" id="L53" title="All 2 branches covered.">    if (course == null)</span>
-<span class="fc" id="L54">      return null;</span>
-<span class="fc" id="L55">    return course.substring(8).trim();</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">    if (course == null) return null;</span>
+<span class="fc" id="L51">    return course.substring(8).trim();</span>
   }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
