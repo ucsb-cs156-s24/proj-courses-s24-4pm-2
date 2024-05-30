@@ -36,7 +36,6 @@ export function isLectureWithNoSections(enrollCode, sections) {
       (section) => section.courseInfo.courseId === courseId,
     );
     const timeLocations = section.section.timeLocations;
-    const isAllDigits = sectionNumber.split('').every(char => !isNaN(parseInt(char)));
 
     // Check if the section number is '0100', indicating a lecture
     if (sectionNumber === "0100") {
@@ -45,7 +44,7 @@ export function isLectureWithNoSections(enrollCode, sections) {
       // Stryker restore all
       // Check if there is only one section for the course
       return courseSections.length === 1;
-    } else if (sectionNumber.slice(-2) === "00" && isAllDigits === true) {
+    } else if (sectionNumber.slice(-2) === "00") {
       // Check if the section has a location to make sure its a course
       return courseSections.length === 1 && typeof timeLocations !== "undefined";
     }

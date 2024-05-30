@@ -103,7 +103,7 @@ describe("isLectureWithNoSections", () => {
         courseInfo: { courseId: "COURSE1 -1" },
         section: {
           enrollCode: "12345",
-          section: "0200",
+          section: "22200",
           timeLocations: [
             {
               room: "3505",
@@ -120,7 +120,7 @@ describe("isLectureWithNoSections", () => {
         courseInfo: { courseId: "COURSE1 -2" },
         section: {
           enrollCode: "12345",
-          section: "0201",
+          section: "22201",
           timeLocations: [
             {
               room: "3505",
@@ -163,32 +163,6 @@ describe("isLectureWithNoSections", () => {
         section: {
           enrollCode: "12345",
           section: "0201",
-          timeLocations: [
-            {
-              room: "3505",
-              building: "PHELP",
-              roomCapacity: "60",
-              days: " T R   ",
-              beginTime: "08:00",
-              endTime: "09:15",
-            },
-          ],
-        },
-      },
-    ];
-
-    const result = isLectureWithNoSections(enrollCode, sections);
-
-    expect(result).toBe(false);
-  });
-  it("should return false when the section number has a letter in it", () => {
-    const enrollCode = "12345";
-    const sections = [
-      {
-        courseInfo: { courseId: "COURSE1" },
-        section: {
-          enrollCode: "12345",
-          section: "aa00",
           timeLocations: [
             {
               room: "3505",
