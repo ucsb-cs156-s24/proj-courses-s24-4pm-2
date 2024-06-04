@@ -23,4 +23,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-s24/proj-courses-s24-4pm-2
 owner: ucsb-cs156-s24
 repo_name: proj-courses-s24-4pm-2
-pull_requests: [{"author":{"id":"U_kgDOBh_k6Q","is_bot":false,"login":"kai-maeda","name":""},"headRefName":"Kai-sameSection2","number":54,"title":"Kai - add button not showing up for certain courses","url":"https://github.com/ucsb-cs156-s24/proj-courses-s24-4pm-2/pull/54"},{"author":{"id":"U_kgDOBh_k6Q","is_bot":false,"login":"kai-maeda","name":""},"headRefName":"Kai-betterUI2","number":53,"title":"Kai- Added action column to add courses and show sections","url":"https://github.com/ucsb-cs156-s24/proj-courses-s24-4pm-2/pull/53"}]
+pull_requests: [{"author":{"id":"U_kgDOBh_k6Q","is_bot":false,"login":"kai-maeda","name":""},"headRefName":"Kai-sameSection2","number":54,"title":"Kai - add button not showing up for certain courses","url":"https://github.com/ucsb-cs156-s24/proj-courses-s24-4pm-2/pull/54"}]
